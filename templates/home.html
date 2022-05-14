@@ -151,7 +151,7 @@
           </div>
           <form action="{% url 'core:search' %}" method="GET" class="form-inline" id="search">
             <div class="md-form my-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search By Name or #" name="search" aria-label="Search">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search By Name or ID" name="search" aria-label="Search">
             </div>
           </form>
         </div>
@@ -194,8 +194,8 @@
                       {% endif %}  
                     </a>
                   </strong>
-                
                 </h5>
+                <h5 class="grey-text">Product Id: {{item.id}}</h5>
 
                 <h4 class="font-weight-bold blue-text">
                   <strong>$

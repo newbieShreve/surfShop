@@ -210,6 +210,7 @@ class CheckoutView(View):
 class PaymentView(View):
     def get(self, *args, **kwargs):
         order = Order.objects.get(user=self.request.user, ordered=False)
+
         if order.billing_address:
             context = {
                 'order': order,
@@ -217,6 +218,7 @@ class PaymentView(View):
                 'STRIPE_PUBLIC_KEY': settings.STRIPE_PUBLIC_KEY
             }
             userprofile = self.request.user.userprofile
+
             if userprofile.one_click_purchasing:
                 # fetch the users card list
                 cards = stripe.Customer.list_sources(
@@ -392,8 +394,8 @@ def search_view(request):
     if request.method == 'GET':
         item_searched = request.GET.get('search')
         if item_searched.isdigit():
-            # filter by slug
-            item_qs = Item.objects.filter(slug=item_searched)
+            # filter by id
+            item_qs = Item.objects.filter(id=item_searched)
             if item_qs.exists():
                 item = item_qs
             else:
