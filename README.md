@@ -31,7 +31,7 @@ Now you can run the project with this command
 python manage.py runserver
 ```
 
-In your browser got to http://127.0.0.1:8000/ and login or create account
+**Note** if you want payments to work you will need to enter card # 4242424242424242 exp: 02/25 zip:32246 
 
 ---
 
